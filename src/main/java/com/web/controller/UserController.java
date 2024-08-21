@@ -53,5 +53,15 @@ public class UserController {
 			return Boolean.FALSE;
 		}
 	}
+	@GetMapping("/testApiOne")
+	@ResponseBody//dispatcher servlet will not look for jsp
+	public String testApiOne(String email) {
+		return "TestApiOne authenticated";
+	}
+	@GetMapping("/testApiTwo")
+	@ResponseBody//dispatcher servlet will not look for jsp
+	public String testApiTwo(String email) {
+		return "TestApiTwo without authentication";
+	}
 
 }
