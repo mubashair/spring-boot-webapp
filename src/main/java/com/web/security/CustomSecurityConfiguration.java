@@ -14,5 +14,6 @@ public class CustomSecurityConfiguration {
 		httpSecurity.authorizeHttpRequests().requestMatchers("/").permitAll();
 		httpSecurity.formLogin();
 		return httpSecurity.build();
+		//mubashar
 	}
 }
