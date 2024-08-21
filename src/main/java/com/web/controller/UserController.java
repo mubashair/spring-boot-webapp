@@ -63,5 +63,10 @@ public class UserController {
 	public String testApiTwo(String email) {
 		return "TestApiTwo without authentication";
 	}
+	@GetMapping("/testApiThree")
+	@ResponseBody//dispatcher servlet will not look for jsp
+	public String testApiThree(String email) {
+		return "TestApiThree access denied";
+	}
 
 }
