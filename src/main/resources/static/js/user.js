@@ -3,11 +3,12 @@ $(document).ready(function() {
 		
 		$("#email").blur(function(){
 			console.log("Email value:"+$("#email").val());
+			alert($("input[name=_csrf]").val())
 		
 		$.ajax({
 			  type: "POST",
 			  url: "findByEmail",
-			  data: {"email":$("#email").val()},
+			  data: {"email":$("#email").val(), "_csrf":$("#csrf").val()},
 			  success: function(emailExists){
 				  console.log("Result is:"+emailExists);
 				  if(emailExists){

@@ -56,6 +56,7 @@
 			</tr>
 
 		</table>
+		<input name="_csrf" id="csrf" type="hidden" value="${_csrf.token}">
 		<div style="text-align: center">
 			<button type="submit" name="submitbtn" style="height: 30px;">Please
 				Submit</button>

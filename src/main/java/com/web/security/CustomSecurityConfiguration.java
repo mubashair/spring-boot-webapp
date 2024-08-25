@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.DefaultSecurityFilterChain;
+import org.springframework.security.web.csrf.CsrfFilter;
 @Configuration
 public class CustomSecurityConfiguration {
 	@Bean
@@ -20,9 +21,12 @@ public class CustomSecurityConfiguration {
 		return httpSecurity.build();*/
 		//mubashar
 		
-		return httpSecurity.authorizeHttpRequests(
-				authorize->authorize
-				.requestMatchers("/testApiOne")
+		return httpSecurity
+				//.csrf(csrf->csrf.disable())
+				.authorizeHttpRequests(
+				
+				 authorize->authorize
+				.requestMatchers("/testApiOne", "/**")
 				.authenticated()
 				.requestMatchers("/testApiTwo")
 				.permitAll()
