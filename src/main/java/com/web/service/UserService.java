@@ -10,3 +10,4 @@ public interface UserService extends UserDetailsService{
 	Boolean findByEmail(String email);
 
 }
+

@@ -38,7 +38,7 @@ public class CustomSecurityConfiguration {
 		
 	}
 	//creating multiple static users with the custom class spring security configurations
-	@Bean
+	/*@Bean
 	InMemoryUserDetailsManager userDetailService() {
 		UserDetails user1 = User.withUsername("java").password(passwordEncoder().encode("world")).build();
 		UserDetails user2 = User.withUsername("meerab").password(passwordEncoder().encode("zubaida")).build();
@@ -47,7 +47,7 @@ public class CustomSecurityConfiguration {
 		
 		//return userDetailsManager;
 		return new InMemoryUserDetailsManager(user1, user2, user3);
-	}
+	}*/
 	@Bean
 	PasswordEncoder passwordEncoder() {
 		//BCryptPasswordEncoder passwordEncode = new BCryptPasswordEncoder();

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.web.dto.UserDTO;
@@ -16,9 +17,16 @@ public class UserServiceImpl implements UserService {
 	UserRepo userRepo;
 	@Autowired
 	private ModelMapperApp modelMapperApp;
-
+    @Autowired
+	private PasswordEncoder passwordEncoder;
+	
 	@Override
 	public void saveUser(UserDTO userDTO) {
+		//encodeing password
+		String encryptedPassword = passwordEncoder.encode(userDTO.getPassword());
+		userDTO.setPassword(encryptedPassword);
+		
+		
 		//this is mannual method to dto to entity
 		
 		
