@@ -27,14 +27,19 @@ public class CustomSecurityConfiguration {
 				.authorizeHttpRequests(
 				
 				 authorize->authorize
-				.requestMatchers("/testApiOne", "/**")
+				.requestMatchers("/home")
 				.authenticated()
-				.requestMatchers("/testApiTwo")
+				.anyRequest()
 				.permitAll()
-				.requestMatchers("testApiThree")
-				.denyAll()
 				
-				).formLogin(Customizer.withDefaults()).build();
+				).formLogin(Customizer.withDefaults())
+				.formLogin(
+						login->login
+						.loginPage("/login")
+						.defaultSuccessUrl("/home")
+						.failureUrl("/login"))
+				
+				.build();
 		
 	}
 	//creating multiple static users with the custom class spring security configurations

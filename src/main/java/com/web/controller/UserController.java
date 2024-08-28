@@ -20,14 +20,14 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-	@GetMapping("home") // localhost:8080/home
+	@GetMapping("home1") // localhost:8080/home
 	//@ResponseBody // not look for web page like jsp or html
 	public String displayMessage(@RequestParam String cafeName, ModelMap map) {
 		System.out.println(cafeName);
 		map.put("cName", cafeName);
 		return "home";
 	}
-	@GetMapping("/")
+	@GetMapping("/userRegisterPage")
 	public String viewUserRegisterForm() {
 		return "userRegister";
 	}
