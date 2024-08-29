@@ -10,6 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.DefaultSecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 public class CustomSecurityConfiguration {
 	@Bean
@@ -32,12 +33,18 @@ public class CustomSecurityConfiguration {
 				.anyRequest()
 				.permitAll()
 				
-				).formLogin(Customizer.withDefaults())
+				)//.formLogin(Customizer.withDefaults())
 				.formLogin(
 						login->login
 						.loginPage("/login")
 						.defaultSuccessUrl("/home")
 						.failureUrl("/login?loginFailed=true"))
+				.logout(logout->logout
+						.invalidateHttpSession(true)
+						.clearAuthentication(true)
+						.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+						.logoutSuccessUrl("/login")
+						)
 				
 				.build();
 		
