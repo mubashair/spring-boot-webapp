@@ -41,7 +41,7 @@ public class UserController {
 			userService.saveUser(userDTO);
 		}
 		
-		return "userRegister";
+		return "login";
 	}
 	@PostMapping("findByEmail")
 	@ResponseBody//dispatcher servlet will not look for jsp

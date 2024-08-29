@@ -49,6 +49,7 @@
 		<div style="text-align: center">
 			<button type="submit" name="submitbtn" style="height: 30px;">Please
 				Login</button>
+			<a href="/userRegisterPage">Sign Up</a>
 		</div>
 	</form>
 </body>

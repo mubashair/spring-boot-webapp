@@ -20,4 +20,6 @@ $(document).ready(function() {
 			  }
 			});
 	   })
+	   $("#successMessage").delay(5000).fadeOut(500);
+	     $("#errorMessage").delay(5000).fadeOut(500);
 	});

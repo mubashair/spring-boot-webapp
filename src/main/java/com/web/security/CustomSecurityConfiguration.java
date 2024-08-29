@@ -37,7 +37,7 @@ public class CustomSecurityConfiguration {
 						login->login
 						.loginPage("/login")
 						.defaultSuccessUrl("/home")
-						.failureUrl("/login"))
+						.failureUrl("/login?loginFailed=true"))
 				
 				.build();
 		
